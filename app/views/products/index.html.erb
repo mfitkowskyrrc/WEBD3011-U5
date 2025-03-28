@@ -5,13 +5,15 @@
     <th>Title</th>
     <th>Description</th>
     <th>Price</th>
-    <th>Stock Quantity</th>
+    <th>Stock</th>
+    <th>Category</th>
     <% @products.each do |product|%>
     <tr>
       <td><%= link_to product.title, product_path(product) %></td>
       <td><%= product.description %></td>
       <td><%= product.price %></td>
       <td><%= product.stock_quantity %></td>
+      <td><%= product.category.name %></td>
     </tr>
 
     <% end %>
