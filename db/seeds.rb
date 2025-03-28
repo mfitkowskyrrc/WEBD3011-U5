@@ -9,13 +9,13 @@ csv_data = File.read(csv_file)
 products = CSV.parse(csv_data, headers: true)
 
 products.each do |product|
-  category = Category.find_or_create_by(name: category_name)
+  category = Category.find_or_create_by(name: product["category"])
 
   Product.create(
-    title: row["name"],
-    description: row["description"],
-    price: row["price"].to_f,
-    stock_quantity: row["stock quantity"].to_i,
+    title: product["name"],
+    price: product["price"],
+    description: product["description"],
+    stock_quantity: product["stock quantity"],
     category: category
   )
 end
